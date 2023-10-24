@@ -1,4 +1,4 @@
-package net.glasslauncher.example.wrappers;
+package net.alternateadventure.betanomalydepths.wrappers;
 
 import net.minecraft.block.material.Material;
 import net.modificationstation.stationapi.api.registry.Identifier;

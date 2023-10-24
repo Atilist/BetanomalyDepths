@@ -1,8 +1,8 @@
-package net.glasslauncher.example.events.ingame;
+package net.alternateadventure.betanomalydepths.events.ingame;
 
+import net.alternateadventure.betanomalydepths.events.init.AchievementListener;
+import net.alternateadventure.betanomalydepths.events.init.KeyBindingListener;
 import net.fabricmc.loader.api.FabricLoader;
-import net.glasslauncher.example.events.init.AchievementListener;
-import net.glasslauncher.example.events.init.KeyBindingListener;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.client.Minecraft;
 import net.modificationstation.stationapi.api.client.event.keyboard.KeyStateChangedEvent;

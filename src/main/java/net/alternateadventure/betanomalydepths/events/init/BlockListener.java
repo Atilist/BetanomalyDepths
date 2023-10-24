@@ -1,6 +1,6 @@
-package net.glasslauncher.example.events.init;
+package net.alternateadventure.betanomalydepths.events.init;
 
-import net.glasslauncher.example.wrappers.ExampleBlockWithModel;
+import net.alternateadventure.betanomalydepths.wrappers.ExampleBlockWithModel;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.BlockBase;
 import net.minecraft.block.material.Material;
