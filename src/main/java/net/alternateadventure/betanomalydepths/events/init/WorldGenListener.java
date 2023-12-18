@@ -1,13 +1,18 @@
 package net.alternateadventure.betanomalydepths.events.init;
 
 import net.alternateadventure.betanomalydepths.worldgen.CentralBiomeProvider;
+import net.alternateadventure.betanomalydepths.worldgen.BeachCondition;
+import net.alternateadventure.betanomalydepths.worldgen.SeafloorCondition;
 import net.mine_diver.unsafeevents.listener.EventListener;
+import net.minecraft.block.BlockBase;
 import net.minecraft.level.biome.Biome;
 import net.modificationstation.stationapi.api.StationAPI;
 import net.modificationstation.stationapi.api.event.world.biome.BiomeRegisterEvent;
 import net.modificationstation.stationapi.api.event.worldgen.biome.BiomeProviderRegisterEvent;
 import net.modificationstation.stationapi.api.worldgen.BiomeAPI;
 import net.modificationstation.stationapi.api.worldgen.biome.BiomeBuilder;
+import net.modificationstation.stationapi.api.worldgen.surface.SurfaceBuilder;
+import net.modificationstation.stationapi.api.worldgen.surface.SurfaceRule;
 
 public class WorldGenListener {
 
@@ -21,11 +26,14 @@ public class WorldGenListener {
 
     @EventListener
     public void registerBiomes(BiomeRegisterEvent event) {
-        archipelago = BiomeBuilder.start("Archipelago").grassAndLeavesColor(0xFF6ECC3F).height(60, 64).build(); //60, 64
-        shallowOcean = BiomeBuilder.start("Shallow Ocean").grassAndLeavesColor(0xFF6ECC3F).height(56, 60).build();  //56, 60
-        lowerContinentalOcean = BiomeBuilder.start("Lower Continental Ocean").grassAndLeavesColor(0xFF6ECC3F).height(0, 16).build();   //32, 48
-        deepOcean = BiomeBuilder.start("Deep Ocean").grassAndLeavesColor(0xFF6ECC3F).height(-48, -16).build();    //16, 32
-        nightOcean = BiomeBuilder.start("Night Ocean").grassAndLeavesColor(0xFF6ECC3F).height(-60, -48).build();    //8, 16
+        SurfaceRule seafloor = SurfaceBuilder.start(BlockBase.GRAVEL).ground(2).condition(new SeafloorCondition(), 1).build();
+        SurfaceRule beach = SurfaceBuilder.start(BlockBase.SAND).ground(2).condition(new BeachCondition(), 1).build();
+
+        archipelago = BiomeBuilder.start("Archipelago").grassAndLeavesColor(0xFF6ECC3F).height(60, 66).surfaceRule(seafloor).surfaceRule(beach).build();
+        shallowOcean = BiomeBuilder.start("Shallow Ocean").grassAndLeavesColor(0xFF6ECC3F).height(56, 60).surfaceRule(seafloor).surfaceRule(beach).build();
+        lowerContinentalOcean = BiomeBuilder.start("Lower Continental Ocean").grassAndLeavesColor(0xFF6ECC3F).height(16, 32).surfaceRule(seafloor).surfaceRule(beach).build();
+        deepOcean = BiomeBuilder.start("Deep Ocean").grassAndLeavesColor(0xFF6ECC3F).height(-48, -32).surfaceRule(seafloor).surfaceRule(beach).build();
+        nightOcean = BiomeBuilder.start("Night Ocean").grassAndLeavesColor(0xFF6ECC3F).height(-60, -48).surfaceRule(seafloor).surfaceRule(beach).build();
 
         oceanBiomes = new Biome[5];
         oceanBiomes[0] = archipelago;
