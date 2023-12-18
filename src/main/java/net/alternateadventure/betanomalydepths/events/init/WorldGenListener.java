@@ -4,7 +4,7 @@ import net.alternateadventure.betanomalydepths.worldgen.CentralBiomeProvider;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.level.biome.Biome;
 import net.modificationstation.stationapi.api.StationAPI;
-import net.modificationstation.stationapi.api.event.level.biome.BiomeRegisterEvent;
+import net.modificationstation.stationapi.api.event.world.biome.BiomeRegisterEvent;
 import net.modificationstation.stationapi.api.event.worldgen.biome.BiomeProviderRegisterEvent;
 import net.modificationstation.stationapi.api.worldgen.BiomeAPI;
 import net.modificationstation.stationapi.api.worldgen.biome.BiomeBuilder;
@@ -23,9 +23,9 @@ public class WorldGenListener {
     public void registerBiomes(BiomeRegisterEvent event) {
         archipelago = BiomeBuilder.start("Archipelago").grassAndLeavesColor(0xFF6ECC3F).height(60, 64).build(); //60, 64
         shallowOcean = BiomeBuilder.start("Shallow Ocean").grassAndLeavesColor(0xFF6ECC3F).height(56, 60).build();  //56, 60
-        lowerContinentalOcean = BiomeBuilder.start("Lower Continental Ocean").grassAndLeavesColor(0xFF6ECC3F).height(32, 48).build();   //32, 48
-        deepOcean = BiomeBuilder.start("Deep Ocean").grassAndLeavesColor(0xFF6ECC3F).height(16, 32).build();    //16, 32
-        nightOcean = BiomeBuilder.start("Night Ocean").grassAndLeavesColor(0xFF6ECC3F).height(8, 16).build();    //8, 16
+        lowerContinentalOcean = BiomeBuilder.start("Lower Continental Ocean").grassAndLeavesColor(0xFF6ECC3F).height(0, 16).build();   //32, 48
+        deepOcean = BiomeBuilder.start("Deep Ocean").grassAndLeavesColor(0xFF6ECC3F).height(-48, -16).build();    //16, 32
+        nightOcean = BiomeBuilder.start("Night Ocean").grassAndLeavesColor(0xFF6ECC3F).height(-60, -48).build();    //8, 16
 
         oceanBiomes = new Biome[5];
         oceanBiomes[0] = archipelago;
@@ -42,6 +42,6 @@ public class WorldGenListener {
         for (Biome biome : oceanBiomes) {
             oceanProvider.addBiome(biome);
         }
-        BiomeAPI.addOverworldBiomeProvider(StationAPI.MODID.id("ocean_provider"), oceanProvider);
+        BiomeAPI.addOverworldBiomeProvider(StationAPI.NAMESPACE.id("ocean_provider"), oceanProvider);
     }
 }

@@ -13,8 +13,12 @@ public class VoronoiWithCenter {
         float distance = getDistanceToCenter(x, z) * 20;
         float distanceSpacing = 12.0F/maxID;
         int biomeID = MathHelper.floor(distance/distanceSpacing);
-        if (biomeID < 0) biomeID = 0;
-        else if (biomeID >= maxID) biomeID = maxID - 1;
+        if (biomeID < 0) {
+            biomeID = 0;
+        }
+        else if (biomeID >= maxID) {
+            biomeID = maxID - 1;
+        }
         return biomeID;
     }
 

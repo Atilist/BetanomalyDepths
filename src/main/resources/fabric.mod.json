@@ -19,17 +19,13 @@
   "environment": "*",
   "entrypoints": {
     "stationapi:event_bus": [
-      "net.alternateadventure.betanomalydepths.events.init.AchievementListener",
       "net.alternateadventure.betanomalydepths.events.init.BlockListener",
       "net.alternateadventure.betanomalydepths.events.init.ItemListener",
       "net.alternateadventure.betanomalydepths.events.init.WorldGenListener",
-      "net.alternateadventure.betanomalydepths.events.init.PlayerHandlerListener",
       "net.alternateadventure.betanomalydepths.events.init.RecipeListener"
     ],
     "stationapi:event_bus_client": [
-      "net.alternateadventure.betanomalydepths.events.init.KeyBindingListener",
-      "net.alternateadventure.betanomalydepths.events.init.TextureListener",
-      "net.alternateadventure.betanomalydepths.events.ingame.KeyPressedListener"
+      "net.alternateadventure.betanomalydepths.events.init.TextureListener"
     ],
     "stationapi:event_bus_server": [
       "net.alternateadventure.betanomalydepths.events.init.ServerInitListener"

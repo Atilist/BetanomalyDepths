@@ -5,9 +5,7 @@ import net.minecraft.util.noise.SimplexOctaveNoise;
 import net.modificationstation.stationapi.api.worldgen.biome.BiomeProvider;
 import net.modificationstation.stationapi.impl.worldgen.IDVoronoiNoise;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class CentralBiomeProvider implements BiomeProvider {
     private final List<Biome> biomes = new ArrayList<>();
@@ -44,6 +42,11 @@ public class CentralBiomeProvider implements BiomeProvider {
         double pz = z * s1 + distortZ.sample(buffer, x, z, 1, 1, s2, s2, 0.25)[0] * distortion;
         int id = centerNoise.getID(px, pz, biomes.size());
         return biomes.get(id);
+    }
+
+    @Override
+    public Collection<Biome> getBiomes() {
+        return Set.of();
     }
 
     @Override
