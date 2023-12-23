@@ -1,5 +1,6 @@
 package net.alternateadventure.betanomalydepths.events.init;
 
+import net.alternateadventure.betanomalydepths.structures.CoralReef;
 import net.alternateadventure.betanomalydepths.worldgen.CentralBiomeProvider;
 import net.alternateadventure.betanomalydepths.worldgen.BeachCondition;
 import net.alternateadventure.betanomalydepths.worldgen.SeafloorCondition;
@@ -29,8 +30,8 @@ public class WorldGenListener {
         SurfaceRule seafloor = SurfaceBuilder.start(BlockBase.GRAVEL).ground(2).condition(new SeafloorCondition(), 1).build();
         SurfaceRule beach = SurfaceBuilder.start(BlockBase.SAND).ground(2).condition(new BeachCondition(), 1).build();
 
-        archipelago = BiomeBuilder.start("Archipelago").grassAndLeavesColor(0xFF6ECC3F).height(60, 66).surfaceRule(seafloor).surfaceRule(beach).build();
-        shallowOcean = BiomeBuilder.start("Shallow Ocean").grassAndLeavesColor(0xFF6ECC3F).height(56, 60).surfaceRule(seafloor).surfaceRule(beach).build();
+        archipelago = BiomeBuilder.start("Archipelago").grassAndLeavesColor(0xFF6ECC3F).height(60, 66).surfaceRule(seafloor).surfaceRule(beach).feature(new CoralReef()).build();
+        shallowOcean = BiomeBuilder.start("Shallow Ocean").grassAndLeavesColor(0xFF6ECC3F).height(56, 60).surfaceRule(seafloor).surfaceRule(beach).feature(new CoralReef()).build();
         lowerContinentalOcean = BiomeBuilder.start("Lower Continental Ocean").grassAndLeavesColor(0xFF6ECC3F).height(16, 32).surfaceRule(seafloor).surfaceRule(beach).build();
         deepOcean = BiomeBuilder.start("Deep Ocean").grassAndLeavesColor(0xFF6ECC3F).height(-48, -32).surfaceRule(seafloor).surfaceRule(beach).build();
         nightOcean = BiomeBuilder.start("Night Ocean").grassAndLeavesColor(0xFF6ECC3F).height(-60, -48).surfaceRule(seafloor).surfaceRule(beach).build();
